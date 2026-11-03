@@ -199,29 +199,26 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --------------------------------------------------------------------------
-     04. SIGNATURE SERVICES DYNAMIC HOVER PREVIEW
+     04. SERVICES INTERACTIVE HOVER IMAGE REVEAL (THE SOCIAL AGENCY DNA)
      -------------------------------------------------------------------------- */
-  const serviceRows = document.querySelectorAll('.service-row-item');
-  const servicePreviewImg = document.getElementById('servicePreviewImg');
-  const previewTag = document.getElementById('previewTag');
+  const serviceNavRows = document.querySelectorAll('.service-nav-row');
+  const servicePreviewItems = document.querySelectorAll('.services-preview-item');
 
-  if (serviceRows.length && servicePreviewImg && previewTag) {
-    serviceRows.forEach((row) => {
+  if (serviceNavRows.length && servicePreviewItems.length) {
+    serviceNavRows.forEach((row) => {
       row.addEventListener('mouseenter', () => {
-        const previewUrl = row.getAttribute('data-preview');
-        const tagText = row.getAttribute('data-tag');
+        const serviceIndex = parseInt(row.getAttribute('data-service'), 10);
 
-        if (previewUrl && servicePreviewImg.src !== previewUrl) {
-          servicePreviewImg.style.opacity = '0.4';
-          setTimeout(() => {
-            servicePreviewImg.src = previewUrl;
-            servicePreviewImg.style.opacity = '1';
-          }, 150);
-        }
+        serviceNavRows.forEach(r => r.classList.remove('active'));
+        row.classList.add('active');
 
-        if (tagText) {
-          previewTag.textContent = tagText;
-        }
+        servicePreviewItems.forEach((img, idx) => {
+          if (idx === serviceIndex) {
+            img.classList.add('active');
+          } else {
+            img.classList.remove('active');
+          }
+        });
       });
     });
   }

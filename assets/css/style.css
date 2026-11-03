@@ -1012,146 +1012,199 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   09. SECTION 05: SIGNATURE SERVICES
+   09. SECTION 05: WHAT WE DO BEST + OUR SERVICES (EXACT RECREATION OF THE SOCIAL AGENCY)
    -------------------------------------------------------------------------- */
-.services-section {
-  background-color: var(--bg-stone);
-  border-top: 1px solid var(--border-dark);
-  padding-top: clamp(2rem, 3.5vw, 3.5rem);
-  padding-bottom: clamp(3rem, 5vw, 4.5rem);
-}
-
-.services-editorial-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.6fr;
-  gap: clamp(2.5rem, 5vw, 6rem);
-  align-items: start;
-}
-
-.services-intro-column {
-  position: sticky;
-  top: 140px;
-}
-
-.services-intro-description {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--text-dark-muted);
-  margin-bottom: 2rem;
-}
-
-.services-action-wrap {
-  margin-bottom: 2.5rem;
-}
-
-/* Dynamic Hover Preview Display */
-.services-hover-preview {
+.services-tsa-section {
   position: relative;
   width: 100%;
-  height: 240px;
-  border-radius: var(--radius-md);
+  background-color: var(--bg-stone);
+  color: var(--text-dark);
+  padding-top: clamp(4rem, 6.5vw, 6.5rem);
+  padding-bottom: clamp(4.5rem, 7vw, 7.5rem);
   overflow: hidden;
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
-  border: 1px solid var(--border-dark);
+  box-sizing: border-box;
+  border-top: 1px solid var(--border-dark);
 }
 
-.service-preview-img {
+.services-tsa-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: clamp(1.5rem, 4vw, 3rem);
+  padding-right: clamp(1.5rem, 4vw, 3rem);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Top Intro & Floating Preview Image Row */
+.services-tsa-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  min-height: 380px;
+  margin-bottom: clamp(3rem, 6vw, 5.5rem);
+}
+
+.services-tsa-intro {
+  max-width: 440px;
+  z-index: 2;
+  position: relative;
+}
+
+.services-tsa-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.45vw, 1.3rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  margin-bottom: 1.15rem;
+}
+
+.services-tsa-description {
+  font-family: var(--font-body);
+  font-size: clamp(0.78rem, 0.95vw, 0.88rem);
+  line-height: 1.6;
+  color: rgba(28, 24, 21, 0.82);
+  margin-bottom: 2rem;
+  max-width: 395px;
+}
+
+/* Burgundy Pill Button Matching TSA Reference */
+.services-tsa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2d1118;
+  color: #f4f0ec;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.65rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.services-tsa-btn:hover {
+  background-color: #49181c;
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+/* Center/Right Floating Preview Card */
+.services-tsa-preview-wrap {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-15%);
+  width: clamp(260px, 23vw, 310px);
+  height: clamp(340px, 30vw, 415px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.services-tsa-preview-holder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.07);
+}
+
+.services-preview-item {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity 0.4s ease, transform 0.6s var(--ease-editorial);
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.45s cubic-bezier(0.25, 1, 0.5, 1), transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.preview-overlay-info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 0.75rem 1rem;
-  background: linear-gradient(180deg, transparent 0%, rgba(21, 18, 16, 0.85) 100%);
-  color: var(--text-light);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
+.services-preview-item.active {
+  opacity: 1;
+  transform: scale(1);
 }
 
-/* Service Rows on Right Side */
-.services-list-column {
+/* Numbered Service Navigation List & Thin Horizontal Lines */
+.services-tsa-nav-list {
+  width: 100%;
+  border-top: 1px solid rgba(28, 24, 21, 0.2);
+  position: relative;
+  z-index: 3;
+}
+
+.service-nav-row {
   display: flex;
-  flex-direction: column;
-}
-
-.service-row-item {
-  border-top: 1px solid var(--border-dark);
-  padding: clamp(2rem, 3.5vw, 3rem) 0;
-  transition: all var(--transition-fast);
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(1.4rem, 2.5vw, 2.1rem) 0;
+  border-bottom: 1px solid rgba(28, 24, 21, 0.2);
+  text-decoration: none;
   cursor: pointer;
+  transition: background-color 0.3s ease, padding 0.3s ease;
 }
 
-.service-row-item:last-child {
-  border-bottom: 1px solid var(--border-dark);
-}
-
-.service-row-item:hover {
-  padding-left: 1rem;
-  background-color: rgba(255, 255, 255, 0.35);
-}
-
-.service-row-top {
-  display: flex;
-  align-items: baseline;
-  gap: 1.5rem;
-  margin-bottom: 1.25rem;
-}
-
-.service-row-number {
+.service-nav-num {
   font-family: var(--font-mono);
-  font-size: clamp(1.4rem, 2.2vw, 2rem);
-  font-weight: 700;
-  color: var(--accent-warm-bronze);
-  line-height: 1;
+  font-size: clamp(0.78rem, 0.95vw, 0.9rem);
+  letter-spacing: 0.1em;
+  color: rgba(28, 24, 21, 0.65);
+  transition: color 0.3s ease;
 }
 
-.service-row-title {
+.service-nav-title {
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2.2vw, 2rem);
-  font-weight: 700;
-  color: var(--text-dark);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  transition: color var(--transition-fast);
+  font-size: clamp(1.3rem, 2.6vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(35, 30, 27, 0.95);
+  text-align: right;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.service-row-item:hover .service-row-title {
-  color: var(--accent-espresso);
+.service-nav-row:hover .service-nav-num,
+.service-nav-row.active .service-nav-num {
+  color: #2d1118;
 }
 
-.service-row-body {
-  padding-left: clamp(2rem, 3.5vw, 3.5rem);
+.service-nav-row:hover .service-nav-title,
+.service-nav-row.active .service-nav-title {
+  color: #2d1118;
+  transform: translateX(-4px);
 }
 
-.service-row-text {
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: var(--text-dark-muted);
-  margin-bottom: 1.25rem;
-  max-width: 640px;
-}
+@media (max-width: 900px) {
+  .services-tsa-top-row {
+    flex-direction: column;
+    min-height: auto;
+    gap: 2.5rem;
+  }
 
-.service-meta-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
+  .services-tsa-preview-wrap {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: none;
+    width: 100%;
+    max-width: 320px;
+    height: 380px;
+    margin: 1.5rem auto 0;
+  }
 
-.meta-tag {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  padding: 0.3rem 0.75rem;
-  border-radius: var(--radius-pill);
-  background-color: rgba(28, 24, 21, 0.05);
-  border: 1px solid var(--border-dark);
-  color: var(--text-dark-muted);
+  .services-tsa-intro {
+    max-width: 100%;
+  }
+
+  .service-nav-title {
+    font-size: clamp(1.1rem, 4vw, 1.45rem);
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -2078,41 +2131,32 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   16. SECTION 11: EDITORIAL TESTIMONIALS SECTION (THE SOCIAL AGENCY DNA)
+   16. SECTION 11: EDITORIAL TESTIMONIALS SECTION (MATCHING ABOUT & THE SOCIAL AGENCY)
    -------------------------------------------------------------------------- */
 .editorial-testimonials-section {
   position: relative;
   width: 100%;
   background-color: var(--bg-stone);
   color: var(--text-dark);
-  padding: clamp(5rem, 9vw, 8rem) 0 clamp(4.5rem, 8vw, 7rem);
+  padding-top: var(--section-pad-y);
+  padding-bottom: var(--section-pad-y);
   border-top: 1px solid var(--border-dark);
   border-bottom: 1px solid var(--border-dark);
   overflow: hidden;
   box-sizing: border-box;
 }
 
-.testimonials-container {
-  position: relative;
-  max-width: 900px;
+.testimonials-center-content {
+  max-width: 840px;
   margin: 0 auto;
-  padding: 0 clamp(1.5rem, 4vw, 2.5rem);
-  box-sizing: border-box;
-}
-
-/* Upper-Right Slide Counter (.01/5) */
-.testimonials-counter-wrap {
-  position: absolute;
-  top: -2.5rem;
-  right: clamp(1.5rem, 4vw, 2.5rem);
-  z-index: 5;
+  text-align: center;
 }
 
 .testimonials-counter {
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  color: var(--text-dark);
+  letter-spacing: 0.1em;
+  color: var(--text-dark-subtle);
   font-weight: 500;
 }
 
@@ -2232,10 +2276,6 @@ button {
 @media (max-width: 768px) {
   .editorial-testimonials-section {
     padding: 3.75rem 0 3.25rem;
-  }
-
-  .testimonials-counter-wrap {
-    top: -1.75rem;
   }
 
   .testimonial-heading {
