@@ -2411,14 +2411,15 @@ button {
    18. SECTION 13: FOOTER (COMPLETE REPLACEMENT — REFERENCE MATCH)
    -------------------------------------------------------------------------- */
 .site-footer {
-  background-color: var(--bg-stone);
-  color: #f5f2eb;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
   padding-top: clamp(3.5rem, 6vw, 5.5rem);
   padding-bottom: clamp(1.25rem, 2.5vw, 2rem);
   position: relative;
   overflow: hidden;
   width: 100%;
   box-sizing: border-box;
+  border-top: 1px solid rgba(245, 242, 235, 0.12);
 }
 
 .footer-container {
@@ -2450,7 +2451,7 @@ button {
   font-size: clamp(0.78rem, 0.95vw, 0.85rem);
   font-weight: 500;
   letter-spacing: 0.14em;
-  color: rgba(245, 242, 235, 0.85);
+  color: rgba(245, 242, 235, 0.9);
   text-decoration: none;
   position: relative;
   padding-bottom: 0.25rem;
@@ -2555,7 +2556,7 @@ button {
 }
 
 .footer-plus {
-  color: rgba(245, 242, 235, 0.5);
+  color: rgba(245, 242, 235, 0.7);
 }
 
 .footer-established {
@@ -2621,11 +2622,11 @@ button {
   justify-content: space-between;
   align-items: center;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(245, 242, 235, 0.08);
+  border-top: 1px solid rgba(245, 242, 235, 0.12);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
-  color: rgba(245, 242, 235, 0.65);
+  color: rgba(245, 242, 235, 0.75);
 }
 
 .footer-col-copy {
