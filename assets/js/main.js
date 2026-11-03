@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (heroVideo) {
     heroVideo.muted = true;
     const playVideo = () => {
-      heroVideo.play().catch(() => {});
+      heroVideo.play().catch(() => { });
     };
     playVideo();
     window.addEventListener('touchstart', playVideo, { once: true, passive: true });

@@ -98,13 +98,29 @@ body {
 }
 
 /* Ensure all typography primitives enforce uppercase */
-h1, h2, h3, h4, h5, h6,
-p, span, a, button, label, li, input, textarea,
-blockquote, figcaption, time, cite {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+button,
+label,
+li,
+input,
+textarea,
+blockquote,
+figcaption,
+time,
+cite {
   text-transform: uppercase;
 }
 
-img, video {
+img,
+video {
   max-width: 100%;
   height: auto;
   display: block;
@@ -272,8 +288,17 @@ button {
 }
 
 @keyframes pulseDot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
 }
 
 /* Main Navigation Bar */
@@ -768,8 +793,15 @@ button {
 }
 
 @keyframes cursorBlink {
-  0%, 100% { opacity: 0.85; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 @media (max-width: 768px) {
@@ -831,8 +863,13 @@ button {
 }
 
 @keyframes scrollMarquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -1592,7 +1629,8 @@ button {
   align-items: baseline;
 }
 
-.stat-prefix, .stat-suffix {
+.stat-prefix,
+.stat-suffix {
   font-size: 0.65em;
   color: var(--accent-gold);
 }
@@ -1929,13 +1967,11 @@ button {
 .studio-immersive-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(14, 11, 9, 0.3) 0%,
-    rgba(14, 11, 9, 0.15) 40%,
-    rgba(14, 11, 9, 0.5) 75%,
-    rgba(14, 11, 9, 0.88) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(14, 11, 9, 0.3) 0%,
+      rgba(14, 11, 9, 0.15) 40%,
+      rgba(14, 11, 9, 0.5) 75%,
+      rgba(14, 11, 9, 0.88) 100%);
 }
 
 /* Center Image Card with Slider */
@@ -2401,7 +2437,8 @@ button {
    18. SECTION 13: FOOTER (COMPLETE REPLACEMENT — REFERENCE MATCH)
    -------------------------------------------------------------------------- */
 .site-footer {
-  background-color: #1d0a0f; /* Deep dark burgundy / wine */
+  background-color: #1d0a0f;
+  /* Deep dark burgundy / wine */
   color: #f5f2eb;
   padding-top: clamp(3.5rem, 6vw, 5.5rem);
   padding-bottom: clamp(1.25rem, 2.5vw, 2rem);
@@ -2472,7 +2509,8 @@ button {
 .footer-gallery-strip {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 4px; /* Narrow uniform gaps */
+  gap: 4px;
+  /* Narrow uniform gaps */
   margin-bottom: clamp(2.5rem, 4.5vw, 3.75rem);
   width: 100%;
   overflow: hidden;
@@ -2480,7 +2518,8 @@ button {
 
 .strip-image-wrap {
   position: relative;
-  aspect-ratio: 3 / 4; /* Equal-width rectangular portrait images */
+  aspect-ratio: 3 / 4;
+  /* Equal-width rectangular portrait images */
   overflow: hidden;
   background-color: #120608;
 }
@@ -2570,7 +2609,8 @@ button {
   font-size: clamp(1.05rem, 1.4vw, 1.3rem);
   letter-spacing: 0.04em;
   color: var(--accent-gold-light);
-  text-transform: none; /* Signature cursive styling */
+  text-transform: none;
+  /* Signature cursive styling */
 }
 
 /* Oversized Bottom Typography */
@@ -2588,7 +2628,8 @@ button {
   width: 100%;
   font-family: var(--font-display);
   font-size: clamp(3.5rem, 15.5vw, 16.5rem);
-  font-weight: 400; /* Thin and elegant font weight */
+  font-weight: 400;
+  /* Thin and elegant font weight */
   line-height: 0.85;
   letter-spacing: -0.03em;
   color: #f5f2eb;
@@ -2688,36 +2729,46 @@ button {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+
   .hero-actions {
     justify-content: flex-start;
   }
+
   .agency-editorial-grid {
     grid-template-columns: 1fr;
   }
+
   .agency-secondary-card {
     width: 100%;
     margin-left: 0;
     margin-top: 2rem;
   }
+
   .floating-stat-badge {
     left: 1.5rem;
     bottom: -1rem;
   }
+
   .services-editorial-layout {
     grid-template-columns: 1fr;
   }
+
   .services-intro-column {
     position: static;
   }
+
   .services-hover-preview {
     display: none;
   }
+
   .results-cards-grid {
     grid-template-columns: 1fr;
   }
+
   .founder-two-column-grid {
     grid-template-columns: 1fr;
   }
+
   .studio-intro-row {
     grid-template-columns: 1fr;
   }
@@ -2727,27 +2778,33 @@ button {
   .nav-links-desktop {
     display: none;
   }
+
   .mobile-menu-toggle {
     display: flex;
   }
+
   .archive-masonry-grid {
     grid-template-columns: 1fr;
   }
+
   .item-portrait-tall,
   .item-medium,
   .item-wide,
   .item-portrait {
     grid-column: span 1;
   }
+
   .item-portrait-tall .archive-media-box,
   .item-medium .archive-media-box,
   .item-wide .archive-media-box,
   .item-portrait .archive-media-box {
     height: 380px;
   }
+
   .logos-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .giant-brand-display {
     font-size: clamp(3.2rem, 14vw, 11rem);
   }
@@ -2757,30 +2814,37 @@ button {
   :root {
     --container-pad: 1.25rem;
   }
+
   .hero-typewriter-headline {
     font-size: clamp(0.72rem, 3.6vw, 1.25rem);
     letter-spacing: 0.04em;
     white-space: nowrap;
   }
+
   .hero-media-wrapper {
     height: 340px;
   }
+
   .hero-media-badge.bottom-right {
     display: none;
   }
+
   .founder-candid-badge {
     right: 0.5rem;
     bottom: -1rem;
     width: 120px;
     height: 120px;
   }
+
   .founder-pillars-row {
     grid-template-columns: 1fr;
   }
+
   /* Footer Mobile Layout */
   .footer-nav {
     gap: 0.85rem 1.4rem;
   }
+
   .footer-gallery-strip {
     display: flex;
     overflow-x: auto;
@@ -2793,59 +2857,72 @@ button {
     padding-right: var(--container-pad);
     gap: 6px;
   }
+
   .footer-gallery-strip::-webkit-scrollbar {
     display: none;
   }
+
   .strip-image-wrap {
     flex: 0 0 clamp(125px, 32vw, 155px);
     aspect-ratio: 3 / 4;
     scroll-snap-align: start;
   }
+
   .footer-info-row {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     text-align: center;
   }
+
   .footer-info-col.left,
   .footer-info-col.center,
   .footer-info-col.right {
     text-align: center;
   }
+
   .giant-brand-display {
     font-size: clamp(2.5rem, 13vw, 5.5rem);
   }
+
   .footer-bottom-bar {
     flex-direction: column;
     gap: 0.75rem;
     text-align: center;
   }
+
   .footer-col-copy,
   .footer-col-legal {
     text-align: center;
   }
+
   .cta-pillars-row {
     flex-direction: column;
     gap: 0.5rem;
   }
+
   .pillar-divider {
     display: none;
   }
 }
 
 @media (max-width: 480px) {
+
   .hero-actions,
   .hero-actions-row {
     flex-direction: column;
     width: 100%;
   }
+
   .hero-actions .btn,
   .hero-actions-row .btn {
     width: 100%;
   }
+
   .cta-buttons-wrap {
     flex-direction: column;
     width: 100%;
   }
+
   .cta-buttons-wrap .btn {
     width: 100%;
   }
@@ -2853,6 +2930,7 @@ button {
 
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
