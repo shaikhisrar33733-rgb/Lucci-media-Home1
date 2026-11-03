@@ -677,19 +677,19 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   06. SECTION 02: HERO SECTION (FULL-BLEED 100% BACKGROUND VIDEO)
+   06. SECTION 02: HERO SECTION (FULL-BLEED LUXURY EDITORIAL HERO)
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
   width: 100%;
-  height: 100vh;
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: var(--bg-dark);
-  color: #ffffff;
+  background-color: #231F20; /* Black */
+  color: #FDFDFC; /* Paper */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -704,7 +704,7 @@ button {
   bottom: 0;
   width: 100%;
   height: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   overflow: hidden;
   z-index: 1;
   pointer-events: none;
@@ -720,102 +720,255 @@ button {
   width: 100%;
   height: 100%;
   min-width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   object-fit: cover;
-  object-position: center 38%;
+  object-position: center 36%;
   display: block;
   border: none;
   margin: 0;
   padding: 0;
+  filter: brightness(0.68) contrast(1.08) saturate(0.85);
 }
 
-/* No dark overlays or gradients */
+/* Cool Desaturated Editorial Scrim (Black #231F20 tonal depth) */
+.hero-video-scrim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(35, 31, 32, 0.65) 0%,
+    rgba(35, 31, 32, 0.42) 35%,
+    rgba(35, 31, 32, 0.52) 70%,
+    rgba(35, 31, 32, 0.82) 100%
+  );
+}
+
 .hero-video-overlay {
   display: none !important;
 }
 
+/* Hero Editorial Container */
 .hero-container {
   position: relative;
   z-index: 3;
-  max-width: 100%;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: calc(80px + 2.5rem) 1.5rem 3.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  pointer-events: none;
   box-sizing: border-box;
 }
 
-/* Single-Line Typewriter Headline */
-.hero-typewriter-wrap {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 100%;
+.hero-content {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
-.hero-typewriter-headline {
-  font-family: var(--font-display);
-  font-size: clamp(0.85rem, 1.8vw, 1.35rem);
-  font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: 0.16em;
+/* 1. Eyebrow: Lekton Caps, uppercase */
+.hero-eyebrow {
+  margin-bottom: 1.35rem;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-eyebrow-text {
+  font-family: 'Lekton', monospace;
+  font-size: clamp(0.72rem, 1.05vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #ffffff;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75);
+  color: #7A808B; /* Ash */
+  background: rgba(35, 31, 32, 0.65); /* Black scrim */
+  padding: 0.45rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(122, 128, 139, 0.3); /* Ash subtle border */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: inline-block;
+}
+
+/* 2. Brand Wordmark */
+.hero-brand-mark {
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-wordmark-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  max-height: 46px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.5));
+}
+
+/* 3. Main Headline: Montserrat, bold/extra-bold italic, strictly lowercase */
+.hero-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2.15rem, 5vw, 4.35rem);
+  font-weight: 800;
+  font-style: italic;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: #FDFDFC; /* Paper */
+  text-transform: lowercase !important;
+  margin: 0 0 1.35rem;
+  max-width: 920px;
+  text-shadow: 0 4px 28px rgba(35, 31, 32, 0.8);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 4. Supporting Text: Montserrat Light, 300 weight */
+.hero-support-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  color: #F1F1ED; /* Stone */
+  margin: 0 0 2.25rem;
+  max-width: 620px;
+  text-shadow: 0 2px 14px rgba(35, 31, 32, 0.65);
+  opacity: 0.95;
+}
+
+/* 5. CTA Button & 6. Trust Line */
+.hero-action-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.15rem;
+  width: 100%;
+}
+
+.hero-primary-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  white-space: nowrap;
-  text-align: center;
+  gap: 0.75rem;
+  padding: 1.1rem 2.6rem;
+  background-color: #FDFDFC; /* Paper */
+  color: #231F20; /* Black */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  border: 1px solid #FDFDFC; /* Paper */
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.hero-primary-cta:hover {
+  background-color: #545A6D; /* Slate */
+  color: #FDFDFC; /* Paper */
+  border-color: #545A6D; /* Slate */
+  transform: translateY(-2px);
+  box-shadow: 0 12px 38px rgba(0, 0, 0, 0.5);
+}
+
+.hero-cta-arrow {
+  transition: transform 0.3s ease;
+  stroke: currentColor;
+}
+
+.hero-primary-cta:hover .hero-cta-arrow {
+  transform: translate(2px, -2px);
+}
+
+.hero-trust-line {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-family: 'Lekton', monospace;
+  font-size: clamp(0.7rem, 0.95vw, 0.78rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #7A808B; /* Ash */
   margin: 0;
 }
 
-.typewriter-content {
-  color: #ffffff;
-}
-
-.typewriter-cursor {
+.hero-trust-line .trust-dot {
   display: inline-block;
-  width: 2px;
-  height: 0.9em;
-  background-color: #ffffff;
-  margin-left: 6px;
-  vertical-align: -0.05em;
-  animation: cursorBlink 1.2s ease-in-out infinite;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
-}
-
-@keyframes cursorBlink {
-
-  0%,
-  100% {
-    opacity: 0.85;
-  }
-
-  50% {
-    opacity: 0;
-  }
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #7A808B; /* Ash */
+  opacity: 0.85;
 }
 
 @media (max-width: 768px) {
-
   .hero-bg-video,
   .hero-bg-img {
     object-position: center 40%;
   }
 
-  .hero-typewriter-headline {
-    font-size: clamp(0.68rem, 3.1vw, 0.92rem);
-    letter-spacing: 0.09em;
-    white-space: nowrap;
+  .hero-container {
+    padding: calc(70px + 1.5rem) 1.25rem 2.5rem;
+  }
+
+  .hero-brand-mark {
+    max-width: 300px;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-wordmark-img {
+    max-height: 34px;
+  }
+
+  .hero-headline {
+    font-size: clamp(1.85rem, 8.2vw, 2.75rem);
+    line-height: 1.12;
+    margin-bottom: 1rem;
+    letter-spacing: -0.025em;
+  }
+
+  .hero-support-text {
+    font-size: 0.98rem;
+    line-height: 1.5;
+    margin-bottom: 1.75rem;
+    max-width: 90%;
+  }
+
+  .hero-primary-cta {
+    padding: 0.95rem 2rem;
+    font-size: 0.76rem;
+    width: 100%;
+    max-width: 290px;
+  }
+
+  .hero-trust-line {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
   }
 }
 
