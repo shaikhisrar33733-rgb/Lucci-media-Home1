@@ -224,6 +224,77 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------------------------------
+     04B. SERVICES BANNER MULTI-LINE SEQUENTIAL TYPEWRITER
+     -------------------------------------------------------------------------- */
+  const servicesTypewriter = document.getElementById('servicesTypewriterContainer');
+  if (servicesTypewriter) {
+    const lines = [
+      "FIVE YEARS OF WORKING WITH LUXURY E-COMMERCE",
+      "SHOOTING IN THE HEART OF NYC.",
+      "CREATIVE, PRODUCTION & STRATEGY IN-HOUSE",
+      "100% USAGE RIGHTS, ALWAYS."
+    ];
+
+    const lineElements = servicesTypewriter.querySelectorAll('.typewriter-line');
+    let lineIdx = 0;
+    let charIdx = 0;
+    let typeTimer = null;
+
+    const charSpeed = 45;   // smooth typing ms per char
+    const linePause = 350;  // pause between lines
+    const endPause = 4500;  // reading pause with all 4 lines visible together
+
+    const typeNextChar = () => {
+      if (lineIdx >= lines.length) return;
+
+      const currentTarget = lines[lineIdx];
+      const currentEl = lineElements[lineIdx];
+      const textSpan = currentEl.querySelector('.line-text');
+      const cursorSpan = currentEl.querySelector('.line-cursor');
+
+      if (cursorSpan && !cursorSpan.classList.contains('active')) {
+        cursorSpan.classList.add('active');
+      }
+
+      charIdx++;
+      if (textSpan) {
+        textSpan.textContent = currentTarget.substring(0, charIdx);
+      }
+
+      if (charIdx < currentTarget.length) {
+        typeTimer = setTimeout(typeNextChar, charSpeed);
+      } else {
+        // Line completed
+        if (lineIdx < lines.length - 1) {
+          if (cursorSpan) cursorSpan.classList.remove('active');
+          lineIdx++;
+          charIdx = 0;
+          const nextCursor = lineElements[lineIdx].querySelector('.line-cursor');
+          if (nextCursor) nextCursor.classList.add('active');
+          typeTimer = setTimeout(typeNextChar, linePause);
+        } else {
+          // All 4 lines completed and visible together!
+          typeTimer = setTimeout(() => {
+            lineElements.forEach((el) => {
+              const t = el.querySelector('.line-text');
+              const c = el.querySelector('.line-cursor');
+              if (t) t.textContent = '';
+              if (c) c.classList.remove('active');
+            });
+            lineIdx = 0;
+            charIdx = 0;
+            const firstCursor = lineElements[0].querySelector('.line-cursor');
+            if (firstCursor) firstCursor.classList.add('active');
+            typeTimer = setTimeout(typeNextChar, linePause);
+          }, endPause);
+        }
+      }
+    };
+
+    setTimeout(typeNextChar, 500);
+  }
+
+  /* --------------------------------------------------------------------------
      05. INTERSECTION OBSERVER SCROLL ANIMATIONS
      -------------------------------------------------------------------------- */
   const scrollElements = document.querySelectorAll('.animate-on-scroll');
@@ -326,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------------------------------
-     11. EDITORIAL TESTIMONIALS 5-SLIDE CAROUSEL
+     11. EDITORIAL TESTIMONIALS 5-SLIDE CAROUSEL (AUTOMATIC 5-SECOND CONTINUOUS ROTATION)
      -------------------------------------------------------------------------- */
   const testimonialsSection = document.getElementById('testimonials');
   if (testimonialsSection) {
@@ -336,10 +407,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalSlides = slides.length;
     let currentIndex = 0;
     let autoRotateTimer = null;
-    const ROTATION_INTERVAL = 5000; // 5 seconds
+    const ROTATION_INTERVAL = 5000; // 5000 milliseconds = 5 seconds
 
     const showSlide = (index) => {
-      // Clamp index within bounds
+      // Loop continuously: slide 5 -> slide 1
       currentIndex = (index + totalSlides) % totalSlides;
 
       // Update slides
@@ -372,33 +443,37 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const startAutoRotate = () => {
-      stopAutoRotate();
+      if (autoRotateTimer) {
+        clearInterval(autoRotateTimer);
+      }
       if (totalSlides > 1) {
         autoRotateTimer = setInterval(nextSlide, ROTATION_INTERVAL);
       }
     };
 
-    const stopAutoRotate = () => {
-      if (autoRotateTimer) {
-        clearInterval(autoRotateTimer);
-        autoRotateTimer = null;
-      }
-    };
-
-    // Dot click events
+    // Manual navigation dot clicks
     dots.forEach((dot) => {
-      dot.addEventListener('click', () => {
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
         const targetIndex = parseInt(dot.getAttribute('data-slide-to'), 10);
         if (!isNaN(targetIndex)) {
           showSlide(targetIndex);
-          startAutoRotate(); // Reset timer on user interaction
+          startAutoRotate(); // Immediately reset 5s interval on manual selection
         }
       });
     });
 
-    // Pause on hover, resume on mouse leave
-    testimonialsSection.addEventListener('mouseenter', stopAutoRotate);
-    testimonialsSection.addEventListener('mouseleave', startAutoRotate);
+    // Handle tab visibility change
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        if (autoRotateTimer) {
+          clearInterval(autoRotateTimer);
+          autoRotateTimer = null;
+        }
+      } else {
+        startAutoRotate();
+      }
+    });
 
     // Touch swipe gesture support for mobile
     let touchStartX = 0;
@@ -408,32 +483,23 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.changedTouches && e.changedTouches[0]) {
         touchStartX = e.changedTouches[0].screenX;
       }
-      stopAutoRotate();
     }, { passive: true });
 
     testimonialsSection.addEventListener('touchend', (e) => {
       if (e.changedTouches && e.changedTouches[0]) {
         touchEndX = e.changedTouches[0].screenX;
-        const swipeThreshold = 45;
+        const swipeThreshold = 50;
         if (touchStartX - touchEndX > swipeThreshold) {
           nextSlide();
+          startAutoRotate();
         } else if (touchEndX - touchStartX > swipeThreshold) {
           showSlide(currentIndex - 1);
+          startAutoRotate();
         }
       }
-      startAutoRotate();
     }, { passive: true });
 
-    // Handle tab visibility change
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        stopAutoRotate();
-      } else {
-        startAutoRotate();
-      }
-    });
-
-    // Initial render & autoplay
+    // Initial render & immediate start of automatic continuous rotation
     showSlide(0);
     startAutoRotate();
   }
