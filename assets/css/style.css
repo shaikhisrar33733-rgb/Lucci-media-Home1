@@ -857,6 +857,10 @@ button {
   position: relative;
 }
 
+.agency-section {
+  padding-bottom: clamp(2rem, 3.5vw, 3.5rem);
+}
+
 .section-tag-row {
   display: flex;
   justify-content: space-between;
@@ -1026,6 +1030,7 @@ button {
 .services-section {
   background-color: var(--bg-stone);
   border-top: 1px solid var(--border-dark);
+  padding-top: clamp(2rem, 3.5vw, 3.5rem);
 }
 
 .services-editorial-layout {
