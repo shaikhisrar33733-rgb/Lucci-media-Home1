@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.89 595.28">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: TTHovesProTrialVariable-ExpRegular, 'TT Hoves Pro Trial Variable';
+        font-size: 334.81px;
+        font-variation-settings: 'wdth' 125, 'wght' 400, 'slnt' 0;
+        letter-spacing: -.02em;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #231f20;
+      }
+    </style>
+  </defs>
+  <text class="cls-1" transform="translate(237.37 398.45) scale(.87 1)"><tspan x="0" y="0">L</tspan></text>
+  <path class="cls-2" d="M327.47,398.45l30.36-234.37h18.61l44.56,221.31h5.39l102.33-221.31h19.59l-37.59,290.19-8.77-.1,35.58-276.02h-5.39l-101.6,220.31h-15.67l-44.8-220.31h-5.39l-28.4,220.31h-8.81Z"/>
+</svg>
