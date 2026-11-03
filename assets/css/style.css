@@ -2310,14 +2310,14 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   16. SECTION 11: EDITORIAL IMPACT & BRAND PILLARS SECTION (REPLACED TESTIMONIALS)
+   16. SECTION 11: EDITORIAL IMPACT & BRAND PILLARS (IMAGE WITH OVERLAY)
    -------------------------------------------------------------------------- */
 .editorial-impact-section {
   position: relative;
   width: 100%;
   background-color: var(--bg-stone);
-  color: var(--text-dark);
-  padding-top: clamp(3rem, 5vw, 4.5rem);
+  color: #ffffff;
+  padding-top: 0;
   padding-bottom: 0;
   border-top: 1px solid var(--border-dark);
   border-bottom: 1px solid var(--border-dark);
@@ -2325,14 +2325,53 @@ button {
   box-sizing: border-box;
 }
 
-/* Text Row (Above Image) */
-.impact-text-header {
-  max-width: 1320px;
+/* Large Full-Width Edge-to-Edge Editorial Image Container */
+.impact-media-wrap {
+  position: relative;
   width: 100%;
-  margin: 0 auto;
-  padding: 0 clamp(1.5rem, 4vw, 3.5rem);
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: block;
+  line-height: 0;
+}
+
+.impact-fullwidth-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1600 / 1067;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border: none;
+}
+
+/* Subtle Scrim for Clean Contrast and Readability */
+.impact-overlay-scrim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(16, 12, 10, 0.45) 0%, rgba(16, 12, 10, 0.12) 32%, rgba(16, 12, 10, 0) 60%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Three Text Elements Positioned INSIDE the Image as an Overlay */
+.impact-overlay-header {
+  position: absolute;
+  top: clamp(1.75rem, 3.8vw, 3.5rem);
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 0 clamp(1.5rem, 4.5vw, 4.5rem);
   box-sizing: border-box;
-  margin-bottom: clamp(1.75rem, 3.2vw, 3rem);
+  z-index: 3;
+  line-height: 1;
 }
 
 .impact-pillars-row {
@@ -2355,7 +2394,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: clamp(0.5rem, 1.2vw, 1rem);
+  gap: clamp(0.5rem, 1.2vw, 1.1rem);
   white-space: nowrap;
 }
 
@@ -2368,73 +2407,55 @@ button {
 
 .impact-pillar-text {
   font-family: var(--font-display);
-  font-size: clamp(0.72rem, 1vw, 0.9rem);
+  font-size: clamp(0.72rem, 1.1vw, 0.95rem);
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text-dark);
+  color: #ffffff;
   white-space: nowrap;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
 }
 
 .impact-star-divider {
   font-size: 0.68em;
-  color: rgba(28, 24, 21, 0.55);
-}
-
-/* Large Full-Width Edge-to-Edge Editorial Image (Below Text Row) */
-.impact-media-wrap {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  display: block;
-  line-height: 0;
-}
-
-.impact-fullwidth-img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1600 / 1067;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  display: inline-block;
 }
 
 @media (max-width: 768px) {
-  .editorial-impact-section {
-    padding-top: 2.25rem;
-    padding-bottom: 0;
-  }
-
-  .impact-text-header {
-    margin-bottom: 1.25rem;
-    padding: 0 1rem;
+  .impact-overlay-header {
+    top: clamp(1rem, 3vw, 1.75rem);
+    padding: 0 clamp(0.85rem, 2.5vw, 1.5rem);
   }
 
   .impact-pillars-row {
     grid-template-columns: 1fr auto 1fr;
-    gap: 0.35rem;
+    gap: 0.25rem;
   }
 
   .impact-pillar-col.center {
-    gap: 0.35rem;
+    gap: 0.25rem;
   }
 
   .impact-pillar-text {
-    font-size: clamp(0.55rem, 2.2vw, 0.72rem);
+    font-size: clamp(0.52rem, 2.2vw, 0.7rem);
     letter-spacing: 0.08em;
+  }
+
+  .impact-star-divider {
+    font-size: 0.58em;
   }
 }
 
 @media (max-width: 480px) {
-  .impact-text-header {
-    padding: 0 0.75rem;
+  .impact-overlay-header {
+    top: 0.85rem;
+    padding: 0 0.65rem;
   }
 
   .impact-pillar-text {
-    font-size: clamp(0.48rem, 2.3vw, 0.6rem);
+    font-size: clamp(0.46rem, 2.3vw, 0.58rem);
     letter-spacing: 0.05em;
   }
 
