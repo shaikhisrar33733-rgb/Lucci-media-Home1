@@ -506,5 +506,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* --------------------------------------------------------------------------
+     10. SOCIAL HAUS STUDIO CARD IMAGE SLIDER (CROSSFADE AUTOPLAY)
+     -------------------------------------------------------------------------- */
+  const studioSliderViewport = document.getElementById('studioCardSlider');
+  if (studioSliderViewport) {
+    const slides = studioSliderViewport.querySelectorAll('.studio-slide-img');
+    let currentSlideIndex = 0;
+    let studioSliderTimer = null;
+
+    const showSlide = (index) => {
+      slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+    };
+
+    const nextStudioSlide = () => {
+      currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+      showSlide(currentSlideIndex);
+    };
+
+    const startStudioAutoplay = () => {
+      if (!studioSliderTimer && slides.length > 1) {
+        studioSliderTimer = setInterval(nextStudioSlide, 3500);
+      }
+    };
+
+    const stopStudioAutoplay = () => {
+      if (studioSliderTimer) {
+        clearInterval(studioSliderTimer);
+        studioSliderTimer = null;
+      }
+    };
+
+    studioSliderViewport.addEventListener('mouseenter', stopStudioAutoplay);
+    studioSliderViewport.addEventListener('mouseleave', startStudioAutoplay);
+
+    // Pause when tab is inactive to prevent burst transitions
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stopStudioAutoplay();
+      } else {
+        startStudioAutoplay();
+      }
+    });
+
+    startStudioAutoplay();
+  }
+
   console.log('LUCCI MEDIA LUXURY EDITORIAL HOMEPAGE INITIALIZED.');
 });

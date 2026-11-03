@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,600&family=Caveat:wght@400;500;600&display=swap"
     rel="stylesheet">
 
   <!-- STYLESHEET -->
@@ -785,63 +785,77 @@
           <span class="section-tag-num">[ 10 ]</span>
         </div>
 
-        <!-- STUDIO INTRO HEADER -->
-        <div class="studio-intro-row animate-on-scroll">
-          <div class="studio-headline-wrap">
-            <h2 class="editorial-headline-large">SOCIAL HAUS, OUR IN HOUSE STUDIO.</h2>
+        <!-- PART 1: FOUR IMAGE GRID -->
+        <div class="studio-four-grid animate-on-scroll">
+          <div class="studio-grid-card">
+            <img src="assets/images/dsc00188.jpg" alt="SOCIAL HAUS STUDIO INTERIOR - LOUNGE" class="studio-grid-img" loading="lazy">
           </div>
-          <div class="studio-description-wrap">
-            <p class="studio-copy-text">
-              EVERY BRAND SHOOT AND CAMPAIGN IS PRODUCED AT SOCIAL HAUS, OUR IN HOUSE STUDIO IN LAWRENCE, MA. IT'S BUILT
-              FOR EDITORIAL BEAUTY WORK, WITH NATURAL LIGHT, STYLED SETS AND ROOM FOR FULL TEAMS, SO YOUR IMAGERY STAYS
-              CONSISTENT FROM ONE SESSION TO THE NEXT.
-            </p>
-            <p class="studio-copy-text sub">
-              MONTHLY CONTENT CREATION AND SOCIAL MEDIA MANAGEMENT HAPPEN ON SITE AT YOUR LOCATION, WHERE YOUR SPACE,
-              YOUR TEAM AND YOUR TREATMENTS ARE.
-            </p>
-            <div class="studio-action-wrap">
-              <a href="#inquire" class="btn btn-dark-pill">
-                <span>STEP INSIDE SOCIAL HAUS</span>
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                  <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </a>
-            </div>
+          <div class="studio-grid-card">
+            <img src="assets/images/photo_feb_18_2026_12_22_04_pm.jpg" alt="SOCIAL HAUS PRODUCTION - SHOOT SETUP" class="studio-grid-img" loading="lazy">
+          </div>
+          <div class="studio-grid-card">
+            <img src="assets/images/photo_dec_13_2025_1_56_08_pm.jpg" alt="SOCIAL HAUS STUDIO - EDITORIAL STYLING" class="studio-grid-img" loading="lazy">
+          </div>
+          <div class="studio-grid-card">
+            <img src="assets/images/img_9039.jpg" alt="SOCIAL HAUS SET - BEAUTY CAMPAIGN" class="studio-grid-img" loading="lazy">
           </div>
         </div>
 
-        <!-- STUDIO EDITORIAL COMPOSITION (MATCHING REFERENCE POLAROID / CARDS) -->
-        <div class="studio-composition-wrap animate-on-scroll">
-          <!-- BACKDROP STUDIO PHOTO -->
-          <div class="studio-backdrop-media">
-            <img src="assets/images/dsc00188.jpg" alt="SOCIAL HAUS STUDIO INTERIOR" class="studio-backdrop-img"
-              loading="lazy">
-            <div class="studio-backdrop-tint"></div>
-          </div>
-
-          <!-- FLOATING POLAROID / EDITORIAL CARD -->
-          <div class="studio-floating-polaroid">
-            <div class="polaroid-inner">
-              <img src="assets/images/photo_apr_06_2026_12_00_13_pm.jpg" alt="SOCIAL HAUS PRODUCTION"
-                class="polaroid-img">
-              <div class="polaroid-caption">
-                <span class="script-cursive">Our studio. Your content.</span>
-              </div>
+        <!-- PART 2: TEXT AND CTA AREA -->
+        <div class="studio-details-row animate-on-scroll">
+          <div class="studio-details-left">
+            <span class="studio-eyebrow">OUR STUDIO</span>
+            <h2 class="studio-main-heading">SOCIAL HAUS, OUR IN HOUSE STUDIO.</h2>
+            <div class="studio-paragraphs">
+              <p class="studio-desc-p">
+                EVERY BRAND SHOOT AND CAMPAIGN IS PRODUCED AT SOCIAL HAUS, OUR IN HOUSE STUDIO IN LAWRENCE, MA. IT'S BUILT FOR EDITORIAL BEAUTY WORK, WITH NATURAL LIGHT, STYLED SETS AND ROOM FOR FULL TEAMS, SO YOUR IMAGERY STAYS CONSISTENT FROM ONE SESSION TO THE NEXT.
+              </p>
+              <p class="studio-desc-p">
+                MONTHLY CONTENT CREATION AND SOCIAL MEDIA MANAGEMENT HAPPEN ON SITE AT YOUR LOCATION, WHERE YOUR SPACE, YOUR TEAM AND YOUR TREATMENTS ARE.
+              </p>
             </div>
           </div>
-
-          <!-- BOTTOM STUDIO META -->
-          <div class="studio-meta-bar">
-            <span>EST. 2023</span>
-            <span class="meta-dot">·</span>
-            <span>LAWRENCE, MA</span>
-            <span class="meta-dot">·</span>
-            <span>NATURAL LIGHT EDITORIAL SETS</span>
+          <div class="studio-details-right">
+            <a href="#studio-immersive" class="btn-studio-cta" id="btnStudioStepInside">
+              <span>STEP INSIDE SOCIAL HAUS</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M1.5 10.5L10.5 1.5M10.5 1.5H3M10.5 1.5V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
           </div>
         </div>
 
+      </div>
+
+      <!-- PART 3: FULL-WIDTH EDITORIAL IMAGE SECTION -->
+      <div class="studio-immersive-wrap animate-on-scroll" id="studio-immersive">
+        <!-- IMMERSIVE BACKGROUND IMAGE -->
+        <div class="studio-immersive-bg-holder">
+          <img src="assets/images/photo_apr_06_2026_3_35_54_pm.jpg" alt="SOCIAL HAUS IMMERSIVE STUDIO BACKGROUND" class="studio-immersive-bg-img" loading="lazy">
+          <div class="studio-immersive-overlay"></div>
+        </div>
+
+        <!-- CENTER PORTRAIT CARD WITH AUTOMATIC FADING SLIDER -->
+        <div class="studio-center-card">
+          <div class="studio-card-slider-viewport" id="studioCardSlider" aria-label="Social Haus Studio Slider">
+            <div class="studio-slider-slides">
+              <img src="assets/images/photo_apr_06_2026_12_00_13_pm.jpg" alt="SOCIAL HAUS PRODUCTION 1" class="studio-slide-img active">
+              <img src="assets/images/photo_apr_06_2026_9_10_08_am.jpg" alt="SOCIAL HAUS PRODUCTION 2" class="studio-slide-img">
+              <img src="assets/images/dsc05925.jpg" alt="SOCIAL HAUS PRODUCTION 3" class="studio-slide-img">
+              <img src="assets/images/photo_dec_13_2025_3_46_00_pm.jpg" alt="SOCIAL HAUS PRODUCTION 4" class="studio-slide-img">
+            </div>
+          </div>
+          <div class="studio-card-footer">
+            <span class="studio-signature-script">Our studio. Your content.</span>
+          </div>
+        </div>
+
+        <!-- BOTTOM CENTER TEXT -->
+        <div class="studio-immersive-bottom">
+          <div class="studio-bottom-labels">SOCIAL HAUS STUDIO INTERIOR &nbsp;·&nbsp; SOCIAL HAUS PRODUCTION</div>
+          <div class="studio-bottom-script">Our studio. Your content.</div>
+          <div class="studio-bottom-meta">EST. 2023 &nbsp;·&nbsp; LAWRENCE, MA &nbsp;·&nbsp; NATURAL LIGHT EDITORIAL SETS</div>
+        </div>
       </div>
     </section>
 
