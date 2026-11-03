@@ -56,30 +56,43 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------------------------------
-     01C. HERO TYPEWRITER ANIMATION
+     01C. HERO TYPEWRITER ANIMATION (CONTINUOUS TYPE & ERASE LOOP)
      -------------------------------------------------------------------------- */
   const typewriterContent = document.getElementById('typewriterContent');
   if (typewriterContent) {
-    const textToType = "STRATEGY, CREATIVE DIRECTION AND PRODUCTION UNDER ONE ROOF. BUILT FOR BRANDS READY TO BE THE NAME PEOPLE BRING UP FIRST.";
+    const textToType = "INDEPENDENT CREATIVE & DIGITAL AGENCY";
     let charIndex = 0;
-    const baseSpeed = 38; // ms per char
+    let isDeleting = false;
     let hasStarted = false;
 
-    const typeChar = () => {
-      if (charIndex < textToType.length) {
-        typewriterContent.textContent += textToType.charAt(charIndex);
-        const currentChar = textToType.charAt(charIndex);
-        charIndex++;
+    const typeSpeed = 65;      // typing speed (ms per char)
+    const deleteSpeed = 30;    // erasing speed (ms per char)
+    const pauseEnd = 2200;     // pause after completing sentence
+    const pauseStart = 600;    // pause before retyping
 
-        // Add subtle humanized rhythm for commas and periods
-        let delay = baseSpeed;
-        if (currentChar === ',') {
-          delay = 220;
-        } else if (currentChar === '.') {
-          delay = 360;
+    const tick = () => {
+      if (!isDeleting) {
+        charIndex++;
+        typewriterContent.textContent = textToType.substring(0, charIndex);
+
+        if (charIndex === textToType.length) {
+          isDeleting = true;
+          setTimeout(tick, pauseEnd);
+          return;
         }
 
-        setTimeout(typeChar, delay);
+        setTimeout(tick, typeSpeed);
+      } else {
+        charIndex--;
+        typewriterContent.textContent = textToType.substring(0, charIndex);
+
+        if (charIndex === 0) {
+          isDeleting = false;
+          setTimeout(tick, pauseStart);
+          return;
+        }
+
+        setTimeout(tick, deleteSpeed);
       }
     };
 
@@ -87,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const startTypewriter = () => {
       if (hasStarted) return;
       hasStarted = true;
-      setTimeout(typeChar, 350);
+      setTimeout(tick, 350);
     };
 
     if (document.body.classList.contains('is-loaded')) {
