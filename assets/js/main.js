@@ -65,10 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let isDeleting = false;
     let hasStarted = false;
 
-    const typeSpeed = 65;      // typing speed (ms per char)
-    const deleteSpeed = 30;    // erasing speed (ms per char)
-    const pauseEnd = 2200;     // pause after completing sentence
-    const pauseStart = 600;    // pause before retyping
+    const typeSpeed = 120;     // smooth, slow typing speed (ms per char)
+    const deleteSpeed = 55;    // calm deleting speed (ms per char)
+    const pauseEnd = 3500;     // relaxed pause after completing sentence (ms)
+    const pauseStart = 1000;   // brief pause before retyping (ms)
 
     const tick = () => {
       if (!isDeleting) {
@@ -326,6 +326,119 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     startStudioAutoplay();
+  }
+
+  /* --------------------------------------------------------------------------
+     11. EDITORIAL TESTIMONIALS 5-SLIDE CAROUSEL
+     -------------------------------------------------------------------------- */
+  const testimonialsSection = document.getElementById('testimonials');
+  if (testimonialsSection) {
+    const slides = testimonialsSection.querySelectorAll('.testimonial-slide');
+    const dots = testimonialsSection.querySelectorAll('.testimonial-dot');
+    const counter = document.getElementById('testimonialsCounter');
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+    let autoRotateTimer = null;
+    const ROTATION_INTERVAL = 5000; // 5 seconds
+
+    const showSlide = (index) => {
+      // Clamp index within bounds
+      currentIndex = (index + totalSlides) % totalSlides;
+
+      // Update slides
+      slides.forEach((slide, i) => {
+        const isActive = i === currentIndex;
+        slide.classList.toggle('active', isActive);
+        slide.setAttribute('aria-hidden', !isActive);
+      });
+
+      // Update dots
+      dots.forEach((dot, i) => {
+        const isActive = i === currentIndex;
+        dot.classList.toggle('active', isActive);
+        if (isActive) {
+          dot.setAttribute('aria-current', 'true');
+        } else {
+          dot.removeAttribute('aria-current');
+        }
+      });
+
+      // Update counter in .01/5 format
+      if (counter) {
+        const formattedIndex = String(currentIndex + 1).padStart(2, '0');
+        counter.textContent = `.${formattedIndex}/${totalSlides}`;
+      }
+    };
+
+    const nextSlide = () => {
+      showSlide(currentIndex + 1);
+    };
+
+    const startAutoRotate = () => {
+      stopAutoRotate();
+      if (totalSlides > 1) {
+        autoRotateTimer = setInterval(nextSlide, ROTATION_INTERVAL);
+      }
+    };
+
+    const stopAutoRotate = () => {
+      if (autoRotateTimer) {
+        clearInterval(autoRotateTimer);
+        autoRotateTimer = null;
+      }
+    };
+
+    // Dot click events
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const targetIndex = parseInt(dot.getAttribute('data-slide-to'), 10);
+        if (!isNaN(targetIndex)) {
+          showSlide(targetIndex);
+          startAutoRotate(); // Reset timer on user interaction
+        }
+      });
+    });
+
+    // Pause on hover, resume on mouse leave
+    testimonialsSection.addEventListener('mouseenter', stopAutoRotate);
+    testimonialsSection.addEventListener('mouseleave', startAutoRotate);
+
+    // Touch swipe gesture support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    testimonialsSection.addEventListener('touchstart', (e) => {
+      if (e.changedTouches && e.changedTouches[0]) {
+        touchStartX = e.changedTouches[0].screenX;
+      }
+      stopAutoRotate();
+    }, { passive: true });
+
+    testimonialsSection.addEventListener('touchend', (e) => {
+      if (e.changedTouches && e.changedTouches[0]) {
+        touchEndX = e.changedTouches[0].screenX;
+        const swipeThreshold = 45;
+        if (touchStartX - touchEndX > swipeThreshold) {
+          nextSlide();
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+          showSlide(currentIndex - 1);
+        }
+      }
+      startAutoRotate();
+    }, { passive: true });
+
+    // Handle tab visibility change
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stopAutoRotate();
+      } else {
+        startAutoRotate();
+      }
+    });
+
+    // Initial render & autoplay
+    showSlide(0);
+    startAutoRotate();
   }
 
   console.log('LUCCI MEDIA LUXURY EDITORIAL HOMEPAGE INITIALIZED.');
