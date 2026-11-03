@@ -781,22 +781,22 @@ button {
 
 /* 1. Eyebrow: Lekton Caps, uppercase */
 .hero-eyebrow {
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.25rem;
   display: flex;
   justify-content: center;
 }
 
 .hero-eyebrow-text {
   font-family: 'Lekton', monospace;
-  font-size: clamp(0.72rem, 1.05vw, 0.82rem);
-  font-weight: 700;
-  letter-spacing: 0.22em;
+  font-size: clamp(0.66rem, 0.8vw, 0.74rem);
+  font-weight: 400;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #7A808B;
   /* Ash */
   background: rgba(35, 31, 32, 0.65);
   /* Black scrim */
-  padding: 0.45rem 1.25rem;
+  padding: 0.38rem 1.15rem;
   border-radius: 999px;
   border: 1px solid rgba(122, 128, 139, 0.3);
   /* Ash subtle border */
@@ -807,9 +807,9 @@ button {
 
 /* 2. Brand Wordmark */
 .hero-brand-mark {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.35rem;
   width: 100%;
-  max-width: 440px;
+  max-width: 380px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -817,29 +817,29 @@ button {
 
 .hero-wordmark-img {
   width: 100%;
-  max-width: 400px;
+  max-width: 360px;
   height: auto;
-  max-height: 46px;
+  max-height: 42px;
   object-fit: contain;
   display: block;
   filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.5));
 }
 
-/* 3. Main Headline: One single line on desktop, typewriter character-by-character */
+/* 3. Main Headline: Refined, minimal typography, one single line on desktop */
 .hero-headline {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1.2rem, 2.35vw, 2.25rem);
-  font-weight: 800;
-  font-style: italic;
-  line-height: 1.15;
-  letter-spacing: -0.025em;
+  font-size: clamp(0.92rem, 1.48vw, 1.42rem);
+  font-weight: 450;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: 0.05em;
   color: #FDFDFC;
   /* Paper */
-  text-transform: lowercase !important;
-  margin: 0 0 1.35rem;
+  text-transform: uppercase !important;
+  margin: 0 0 1.2rem;
   width: 100%;
   max-width: 100%;
-  text-shadow: 0 4px 28px rgba(35, 31, 32, 0.8);
+  text-shadow: 0 3px 20px rgba(35, 31, 32, 0.75);
   white-space: nowrap;
   /* Desktop: ONE SINGLE LINE */
   display: inline-flex;
@@ -849,14 +849,14 @@ button {
 
 .hero-headline-cursor {
   display: inline-block;
-  width: 2px;
+  width: 1.5px;
   height: 0.85em;
   background-color: #FDFDFC;
   /* Paper */
-  margin-left: 5px;
+  margin-left: 4px;
   vertical-align: -0.05em;
   animation: heroCursorBlink 0.9s ease-in-out infinite;
-  box-shadow: 0 0 8px rgba(253, 253, 252, 0.7);
+  box-shadow: 0 0 6px rgba(253, 253, 252, 0.6);
   transition: opacity 0.35s ease;
 }
 
@@ -877,20 +877,21 @@ button {
   }
 }
 
-/* 4. Supporting Text: Montserrat Light, 300 weight */
+/* 4. Supporting Text: Subtle, small, refined uppercase */
 .hero-support-text {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-size: clamp(0.72rem, 0.95vw, 0.82rem);
   font-weight: 300;
   font-style: normal;
-  line-height: 1.55;
-  letter-spacing: 0.02em;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  text-transform: uppercase !important;
   color: #F1F1ED;
   /* Stone */
-  margin: 0 0 2.25rem;
-  max-width: 620px;
+  margin: 0 0 2rem;
+  max-width: 580px;
   text-shadow: 0 2px 14px rgba(35, 31, 32, 0.65);
-  opacity: 0.95;
+  opacity: 0.85;
 }
 
 /* 5. CTA Button & 6. Trust Text */
@@ -907,14 +908,14 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1.1rem 2.6rem;
+  padding: 1.05rem 2.5rem;
   background-color: #FDFDFC;
   /* Paper */
   color: #231F20;
   /* Black */
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.78rem;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   border: 1px solid #FDFDFC;
@@ -940,7 +941,7 @@ button {
 
 .hero-trust-text {
   font-family: 'Lekton', monospace;
-  font-size: clamp(0.7rem, 0.95vw, 0.78rem);
+  font-size: clamp(0.65rem, 0.8vw, 0.72rem);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -955,9 +956,9 @@ button {
   .hero-headline {
     white-space: normal;
     /* Mobile/tablet: wraps naturally */
-    font-size: clamp(1.65rem, 6.2vw, 2.35rem);
-    line-height: 1.18;
-    letter-spacing: -0.02em;
+    font-size: clamp(1rem, 3.8vw, 1.35rem);
+    line-height: 1.35;
+    letter-spacing: 0.04em;
     display: inline;
     word-break: normal;
     overflow-wrap: break-word;
@@ -972,43 +973,44 @@ button {
   }
 
   .hero-container {
-    padding: calc(70px + 1.5rem) 1.25rem 2.5rem;
+    padding: calc(70px + 1.25rem) 1.25rem 2.25rem;
   }
 
   .hero-brand-mark {
-    max-width: 300px;
-    margin-bottom: 1.2rem;
+    max-width: 280px;
+    margin-bottom: 1.1rem;
   }
 
   .hero-wordmark-img {
-    max-height: 34px;
+    max-height: 32px;
   }
 
   .hero-headline {
     white-space: normal;
-    font-size: clamp(1.45rem, 7.8vw, 2.1rem);
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
+    font-size: clamp(0.95rem, 4.4vw, 1.25rem);
+    line-height: 1.35;
+    margin-bottom: 0.95rem;
+    letter-spacing: 0.03em;
     display: inline;
   }
 
   .hero-support-text {
-    font-size: 0.95rem;
+    font-size: 0.75rem;
     line-height: 1.5;
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.6rem;
     max-width: 90%;
+    letter-spacing: 0.08em;
   }
 
   .hero-primary-cta {
     padding: 0.95rem 2.2rem;
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     width: 100%;
-    max-width: 290px;
+    max-width: 280px;
   }
 
   .hero-trust-text {
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     letter-spacing: 0.12em;
   }
 }

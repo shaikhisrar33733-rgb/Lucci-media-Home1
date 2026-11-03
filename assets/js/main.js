@@ -57,17 +57,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* --------------------------------------------------------------------------
      01C. HERO HEADLINE TYPEWRITER ANIMATION
-     Reveals: "we turn beauty + wellness brands into booked-out businesses"
+     Reveals: "WE TURN BEAUTY + WELLNESS BRANDS INTO BOOKED-OUT BUSINESSES"
      Subtle blinking cursor during typing, removed after completion.
      -------------------------------------------------------------------------- */
   const heroHeadlineText = document.getElementById('heroHeadlineText');
   const heroHeadlineCursor = document.getElementById('heroHeadlineCursor');
 
   if (heroHeadlineText) {
-    const textToType = "we turn beauty + wellness brands into booked-out businesses";
+    const textToType = "WE TURN BEAUTY + WELLNESS BRANDS INTO BOOKED-OUT BUSINESSES";
     let charIndex = 0;
     let hasStarted = false;
-    const typeSpeed = 40; // smooth, elegant typing pace (ms per char)
+    const typeSpeed = 65; // slightly slower, elegant, refined typing pace (ms per char)
 
     const typeChar = () => {
       if (charIndex < textToType.length) {
