@@ -232,7 +232,8 @@ document.addEventListener('DOMContentLoaded', () => {
       "FIVE YEARS OF WORKING WITH LUXURY E-COMMERCE",
       "SHOOTING IN THE HEART OF NYC.",
       "CREATIVE, PRODUCTION & STRATEGY IN-HOUSE",
-      "100% USAGE RIGHTS, ALWAYS."
+      "100% USAGE RIGHTS, ALWAYS.",
+      "Our studio. Your content."
     ];
 
     const textSpan = servicesTypewriter.querySelector('.line-text');
