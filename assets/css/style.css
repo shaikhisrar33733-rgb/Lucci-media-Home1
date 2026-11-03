@@ -806,6 +806,7 @@ button {
 }
 
 @media (max-width: 768px) {
+
   .hero-bg-video,
   .hero-bg-img {
     object-position: center 40%;
