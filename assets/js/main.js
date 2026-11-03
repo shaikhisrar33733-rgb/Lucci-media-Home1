@@ -388,6 +388,51 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------------------------------
+     10B. OUR STUDIO TYPEWRITER ANIMATION ("Our studio. Your content.")
+     -------------------------------------------------------------------------- */
+  const studioTypewriter = document.getElementById('studioTypewriter');
+  if (studioTypewriter) {
+    const textSpan = studioTypewriter.querySelector('.studio-typewriter-text');
+    const sentence = "Our studio. Your content.";
+    let charIdx = 0;
+    let isDeleting = false;
+    let typeTimer = null;
+
+    const typeSpeed = 50;       // smooth typing speed (ms/char)
+    const eraseSpeed = 26;      // smooth reverse typewriter erasing speed (ms/char)
+    const holdVisible = 2000;   // keep complete sentence visible briefly (ms)
+    const pauseBeforeNext = 450;// brief pause after erasure before re-typing (ms)
+
+    const typeLoop = () => {
+      if (isDeleting) {
+        charIdx--;
+      } else {
+        charIdx++;
+      }
+
+      if (textSpan) {
+        textSpan.textContent = sentence.substring(0, charIdx);
+      }
+
+      let delay = isDeleting ? eraseSpeed : typeSpeed;
+
+      if (!isDeleting && charIdx === sentence.length) {
+        // Complete sentence displayed - keep visible briefly, then start erasing
+        isDeleting = true;
+        delay = holdVisible;
+      } else if (isDeleting && charIdx === 0) {
+        // Complete sentence erased - restart in infinite loop
+        isDeleting = false;
+        delay = pauseBeforeNext;
+      }
+
+      typeTimer = setTimeout(typeLoop, delay);
+    };
+
+    setTimeout(typeLoop, 500);
+  }
+
+  /* --------------------------------------------------------------------------
      11. EDITORIAL TESTIMONIALS 5-SLIDE CAROUSEL (IF PRESENT)
      -------------------------------------------------------------------------- */
   const testimonialsSection = document.getElementById('testimonials');

@@ -2221,6 +2221,21 @@ button {
   margin-bottom: 0.55rem;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
   letter-spacing: 0.01em;
+  min-height: 1.4em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.studio-typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.15em;
+  background-color: #ffffff;
+  margin-left: 5px;
+  vertical-align: middle;
+  animation: cursorBlink 0.9s infinite;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
 }
 
 .studio-bottom-meta {
