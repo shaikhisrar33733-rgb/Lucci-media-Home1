@@ -1056,8 +1056,8 @@ button {
   width: 100%;
   background-color: var(--bg-stone);
   color: var(--text-dark);
-  padding-top: 0;
-  padding-bottom: clamp(4.5rem, 7vw, 7.5rem);
+  padding-top: clamp(3.5rem, 5.5vw, 5.5rem);
+  padding-bottom: 0;
   overflow: hidden;
   box-sizing: border-box;
   border-top: 1px solid var(--border-dark);
@@ -1074,7 +1074,8 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-bottom: clamp(3.5rem, 6vw, 5.5rem);
+  margin-top: clamp(3.5rem, 6vw, 5.5rem);
+  margin-bottom: 0;
   box-sizing: border-box;
 }
 
@@ -1175,9 +1176,15 @@ button {
 }
 
 @media (max-width: 768px) {
+  .services-tsa-section {
+    padding-top: 2.75rem;
+    padding-bottom: 0;
+  }
+
   .services-fullwidth-banner {
     height: 380px;
-    margin-bottom: 2.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0;
   }
 
   .services-banner-tag {
@@ -2438,12 +2445,48 @@ button {
   transform: scale(1.15);
 }
 
+/* Testimonial Content Below Existing Carousel */
+.testimonials-bottom-entry {
+  margin-top: clamp(3.5rem, 6vw, 5.25rem);
+  padding-top: clamp(2.5rem, 4vw, 3.5rem);
+  border-top: 1px solid rgba(28, 24, 21, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.testimonials-bottom-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.85vw, 1.45rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .editorial-testimonials-section {
     padding: 3.75rem 0 3.25rem;
   }
 
   .testimonial-heading {
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  .testimonials-bottom-entry {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+  }
+
+  .testimonials-bottom-heading {
     font-size: 0.95rem;
     line-height: 1.35;
   }
