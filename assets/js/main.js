@@ -56,6 +56,55 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------------------------------
+     01C. HERO TYPEWRITER ANIMATION
+     -------------------------------------------------------------------------- */
+  const typewriterContent = document.getElementById('typewriterContent');
+  if (typewriterContent) {
+    const textToType = "STRATEGY, CREATIVE DIRECTION AND PRODUCTION UNDER ONE ROOF. BUILT FOR BRANDS READY TO BE THE NAME PEOPLE BRING UP FIRST.";
+    let charIndex = 0;
+    const baseSpeed = 38; // ms per char
+    let hasStarted = false;
+
+    const typeChar = () => {
+      if (charIndex < textToType.length) {
+        typewriterContent.textContent += textToType.charAt(charIndex);
+        const currentChar = textToType.charAt(charIndex);
+        charIndex++;
+
+        // Add subtle humanized rhythm for commas and periods
+        let delay = baseSpeed;
+        if (currentChar === ',') {
+          delay = 220;
+        } else if (currentChar === '.') {
+          delay = 360;
+        }
+
+        setTimeout(typeChar, delay);
+      }
+    };
+
+    // Trigger after preloader completes or immediately if already loaded
+    const startTypewriter = () => {
+      if (hasStarted) return;
+      hasStarted = true;
+      setTimeout(typeChar, 350);
+    };
+
+    if (document.body.classList.contains('is-loaded')) {
+      startTypewriter();
+    } else {
+      let waitTime = 0;
+      const waitPreloader = setInterval(() => {
+        waitTime += 50;
+        if (document.body.classList.contains('is-loaded') || waitTime >= 1800) {
+          clearInterval(waitPreloader);
+          startTypewriter();
+        }
+      }, 50);
+    }
+  }
+
+  /* --------------------------------------------------------------------------
      02. STICKY NAVBAR & ACTIVE SCROLL SPY
      -------------------------------------------------------------------------- */
   const siteHeader = document.getElementById('siteHeader');

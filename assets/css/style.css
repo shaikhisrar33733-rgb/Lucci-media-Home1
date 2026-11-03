@@ -652,25 +652,29 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   06. SECTION 02: HERO SECTION (FULL-BLEED BACKGROUND VIDEO)
+   06. SECTION 02: HERO SECTION (FULL-BLEED 100% BACKGROUND VIDEO)
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
-  min-height: 88vh;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: clamp(6.5rem, 11vw, 10rem);
-  padding-bottom: clamp(5rem, 9vw, 8rem);
+  padding: clamp(7rem, 14vh, 11rem) 0 clamp(5rem, 10vh, 8rem);
   overflow: hidden;
   background-color: var(--bg-dark);
   color: var(--text-light);
+  box-sizing: border-box;
 }
 
-/* Full-Bleed Background Video */
+/* Full-Bleed 100% Background Video Edge-to-Edge */
 .hero-video-bg-wrap {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -679,26 +683,41 @@ button {
 }
 
 .hero-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  min-width: 100%;
+  min-height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center;
+  display: block;
 }
 
 .hero-video-overlay {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(16, 13, 11, 0.62) 0%, rgba(16, 13, 11, 0.48) 50%, rgba(16, 13, 11, 0.85) 100%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(16, 13, 11, 0.6) 0%, rgba(16, 13, 11, 0.45) 50%, rgba(16, 13, 11, 0.82) 100%);
+  z-index: 2;
 }
 
 .hero-container {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   max-width: var(--container-max);
   margin: 0 auto;
   padding-left: var(--container-pad);
   padding-right: var(--container-pad);
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Eyebrow */
@@ -706,7 +725,7 @@ button {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .eyebrow-accent-line {
@@ -731,52 +750,58 @@ button {
   border: 1px solid rgba(245, 242, 235, 0.3);
   border-radius: var(--radius-pill);
   color: var(--accent-gold-light);
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* Headline (Refined, Less Heavy, Medium/Regular Weight) */
-.hero-headline-wrap {
-  margin-bottom: clamp(1.75rem, 3.5vw, 3rem);
+/* Typewriter Headline */
+.hero-typewriter-wrap {
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  max-width: 1240px;
+  min-height: clamp(130px, 24vh, 250px);
+  display: flex;
+  align-items: flex-start;
 }
 
-.hero-headline {
+.hero-typewriter-headline {
   font-family: var(--font-display);
-  font-size: clamp(2.1rem, 4.3vw, 4.15rem);
+  font-size: clamp(1.9rem, 4.1vw, 3.8rem);
   font-weight: 500;
-  line-height: 1.14;
+  line-height: 1.18;
   letter-spacing: 0.015em;
   color: #ffffff;
-  max-width: 1300px;
-  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.6);
+  display: inline;
 }
 
-/* Hero Subhead & Action Row */
-.hero-subhead-row {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: clamp(2rem, 4vw, 4rem);
-  align-items: flex-end;
-  padding-top: clamp(1.5rem, 2.5vw, 2.5rem);
-  border-top: 1px solid rgba(245, 242, 235, 0.18);
+.typewriter-content {
+  color: #ffffff;
 }
 
-.hero-subhead {
-  font-family: var(--font-body);
-  font-size: clamp(0.95rem, 1.25vw, 1.15rem);
-  font-weight: 400;
-  line-height: 1.65;
-  color: rgba(245, 242, 235, 0.88);
-  max-width: 680px;
-  letter-spacing: 0.04em;
-  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.4);
+.typewriter-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.9em;
+  background-color: var(--accent-gold);
+  margin-left: 6px;
+  vertical-align: -0.05em;
+  animation: cursorBlink 0.9s infinite;
+  box-shadow: 0 0 10px rgba(197, 168, 128, 0.7);
 }
 
-.hero-actions {
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Hero Actions Row */
+.hero-actions-row {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  justify-content: flex-end;
+  gap: 1.25rem;
   flex-wrap: wrap;
+  padding-top: clamp(1.5rem, 2.5vw, 2.5rem);
+  border-top: 1px solid rgba(245, 242, 235, 0.18);
+  width: 100%;
 }
 
 /* --------------------------------------------------------------------------
@@ -2477,11 +2502,13 @@ button {
 }
 
 @media (max-width: 480px) {
-  .hero-actions {
+  .hero-actions,
+  .hero-actions-row {
     flex-direction: column;
     width: 100%;
   }
-  .hero-actions .btn {
+  .hero-actions .btn,
+  .hero-actions-row .btn {
     width: 100%;
   }
   .cta-buttons-wrap {
