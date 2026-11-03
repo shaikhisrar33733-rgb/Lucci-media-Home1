@@ -892,32 +892,76 @@ button {
 /* Agency Two-Column Layout */
 .agency-editorial-grid {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
+  grid-template-columns: 1.05fr 1fr;
   gap: clamp(2.5rem, 5vw, 5.5rem);
   align-items: start;
 }
 
-.agency-link-wrap {
-  margin-bottom: 2.5rem;
+.agency-col-left {
+  display: flex;
+  flex-direction: column;
 }
 
-.editorial-text-link {
+/* Agency CTA & Description */
+.agency-cta-block {
+  margin-top: clamp(2.25rem, 3.8vw, 3.25rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.btn-agency-burgundy {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
-  font-family: var(--font-mono);
+  gap: 0.75rem;
+  background-color: #4a121a;
+  color: #ffffff;
+  padding: 0.95rem 2.2rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
   font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-dark);
+  font-weight: 600;
   letter-spacing: 0.08em;
-  border-bottom: 1px solid var(--text-dark);
-  padding-bottom: 0.25rem;
-  transition: gap var(--transition-fast), color var(--transition-fast);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 4px 18px rgba(74, 18, 26, 0.25);
+  margin-bottom: 1.5rem;
 }
 
-.editorial-text-link:hover {
-  gap: 1rem;
-  color: var(--accent-espresso);
+.btn-agency-burgundy:hover {
+  background-color: #350b12;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(74, 18, 26, 0.35);
+}
+
+.btn-agency-burgundy .btn-arrow {
+  transition: transform var(--transition-fast);
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.btn-agency-burgundy:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.agency-description {
+  font-family: var(--font-body);
+  font-size: clamp(0.78rem, 1vw, 0.85rem);
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  color: var(--text-dark-muted);
+  max-width: 400px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Agency Right Column Images */
+.agency-col-right {
+  display: flex;
+  flex-direction: column;
 }
 
 .agency-image-card {
@@ -938,53 +982,16 @@ button {
   transition: transform 0.8s var(--ease-editorial);
 }
 
-.image-inner-wrap:hover .editorial-img {
+.image-inner-wrap:hover .editorial-img,
+.secondary-card-img-wrap:hover .editorial-img {
   transform: scale(1.04);
-}
-
-.agency-image-caption {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.85rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-dark-subtle);
-  letter-spacing: 0.06em;
-}
-
-/* Agency Right Column */
-.agency-body-paragraphs {
-  margin-bottom: 3rem;
-}
-
-.editorial-lead-para {
-  font-family: var(--font-body);
-  font-size: clamp(1rem, 1.35vw, 1.22rem);
-  font-weight: 500;
-  line-height: 1.65;
-  color: var(--text-dark);
-  margin-bottom: 1.5rem;
-}
-
-.quote-accent-bar {
-  width: 48px;
-  height: 2px;
-  background-color: var(--accent-gold);
-  margin-bottom: 1.5rem;
-}
-
-.editorial-support-para {
-  font-family: var(--font-body);
-  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
-  font-weight: 400;
-  line-height: 1.7;
-  color: var(--text-dark-muted);
 }
 
 .agency-secondary-card {
   position: relative;
   width: 85%;
   margin-left: auto;
+  margin-top: clamp(1.75rem, 3.5vw, 2.75rem);
 }
 
 .secondary-card-img-wrap {
@@ -994,41 +1001,23 @@ button {
   overflow: hidden;
 }
 
-.floating-stat-badge {
-  position: absolute;
-  bottom: -1.5rem;
-  left: -2rem;
-  background-color: var(--bg-dark);
-  color: var(--text-light);
-  padding: 1.25rem 1.65rem;
-  border-radius: var(--radius-md);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  z-index: 2;
-}
-
-.badge-sub {
+.editorial-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--accent-gold);
-  letter-spacing: 0.1em;
-}
-
-.badge-num {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  color: var(--text-light);
-  line-height: 1;
+  color: var(--text-dark);
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--text-dark);
+  padding-bottom: 0.25rem;
+  transition: gap var(--transition-fast), color var(--transition-fast);
 }
 
-.badge-label {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--text-light-muted);
-  letter-spacing: 0.08em;
+.editorial-text-link:hover {
+  gap: 1rem;
+  color: var(--accent-espresso);
 }
 
 /* --------------------------------------------------------------------------
