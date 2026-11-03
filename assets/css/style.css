@@ -688,8 +688,10 @@ button {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #231F20; /* Black */
-  color: #FDFDFC; /* Paper */
+  background-color: #231F20;
+  /* Black */
+  color: #FDFDFC;
+  /* Paper */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -738,13 +740,11 @@ button {
   height: 100%;
   z-index: 2;
   pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(35, 31, 32, 0.65) 0%,
-    rgba(35, 31, 32, 0.42) 35%,
-    rgba(35, 31, 32, 0.52) 70%,
-    rgba(35, 31, 32, 0.82) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(35, 31, 32, 0.65) 0%,
+      rgba(35, 31, 32, 0.42) 35%,
+      rgba(35, 31, 32, 0.52) 70%,
+      rgba(35, 31, 32, 0.82) 100%);
 }
 
 .hero-video-overlay {
@@ -792,11 +792,14 @@ button {
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #7A808B; /* Ash */
-  background: rgba(35, 31, 32, 0.65); /* Black scrim */
+  color: #7A808B;
+  /* Ash */
+  background: rgba(35, 31, 32, 0.65);
+  /* Black scrim */
   padding: 0.45rem 1.25rem;
   border-radius: 999px;
-  border: 1px solid rgba(122, 128, 139, 0.3); /* Ash subtle border */
+  border: 1px solid rgba(122, 128, 139, 0.3);
+  /* Ash subtle border */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: inline-block;
@@ -830,13 +833,15 @@ button {
   font-style: italic;
   line-height: 1.15;
   letter-spacing: -0.025em;
-  color: #FDFDFC; /* Paper */
+  color: #FDFDFC;
+  /* Paper */
   text-transform: lowercase !important;
   margin: 0 0 1.35rem;
   width: 100%;
   max-width: 100%;
   text-shadow: 0 4px 28px rgba(35, 31, 32, 0.8);
-  white-space: nowrap; /* Desktop: ONE SINGLE LINE */
+  white-space: nowrap;
+  /* Desktop: ONE SINGLE LINE */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -846,7 +851,8 @@ button {
   display: inline-block;
   width: 2px;
   height: 0.85em;
-  background-color: #FDFDFC; /* Paper */
+  background-color: #FDFDFC;
+  /* Paper */
   margin-left: 5px;
   vertical-align: -0.05em;
   animation: heroCursorBlink 0.9s ease-in-out infinite;
@@ -860,9 +866,12 @@ button {
 }
 
 @keyframes heroCursorBlink {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
@@ -876,7 +885,8 @@ button {
   font-style: normal;
   line-height: 1.55;
   letter-spacing: 0.02em;
-  color: #F1F1ED; /* Stone */
+  color: #F1F1ED;
+  /* Stone */
   margin: 0 0 2.25rem;
   max-width: 620px;
   text-shadow: 0 2px 14px rgba(35, 31, 32, 0.65);
@@ -898,14 +908,17 @@ button {
   align-items: center;
   justify-content: center;
   padding: 1.1rem 2.6rem;
-  background-color: #FDFDFC; /* Paper */
-  color: #231F20; /* Black */
+  background-color: #FDFDFC;
+  /* Paper */
+  color: #231F20;
+  /* Black */
   font-family: 'Montserrat', sans-serif;
   font-size: 0.82rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  border: 1px solid #FDFDFC; /* Paper */
+  border: 1px solid #FDFDFC;
+  /* Paper */
   border-radius: 999px;
   text-decoration: none;
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
@@ -915,9 +928,12 @@ button {
 }
 
 .hero-primary-cta:hover {
-  background-color: #545A6D; /* Slate */
-  color: #FDFDFC; /* Paper */
-  border-color: #545A6D; /* Slate */
+  background-color: #545A6D;
+  /* Slate */
+  color: #FDFDFC;
+  /* Paper */
+  border-color: #545A6D;
+  /* Slate */
   transform: translateY(-2px);
   box-shadow: 0 12px 38px rgba(0, 0, 0, 0.5);
 }
@@ -928,7 +944,8 @@ button {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: #7A808B; /* Ash */
+  color: #7A808B;
+  /* Ash */
   margin: 0;
   display: block;
   text-align: center;
@@ -936,7 +953,8 @@ button {
 
 @media (max-width: 991px) {
   .hero-headline {
-    white-space: normal; /* Mobile/tablet: wraps naturally */
+    white-space: normal;
+    /* Mobile/tablet: wraps naturally */
     font-size: clamp(1.65rem, 6.2vw, 2.35rem);
     line-height: 1.18;
     letter-spacing: -0.02em;
@@ -947,6 +965,7 @@ button {
 }
 
 @media (max-width: 768px) {
+
   .hero-bg-video,
   .hero-bg-img {
     object-position: center 40%;
