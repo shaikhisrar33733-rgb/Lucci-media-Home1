@@ -56,62 +56,53 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------------------------------
-     01C. HERO TYPEWRITER ANIMATION (CONTINUOUS TYPE & ERASE LOOP)
+     01C. HERO HEADLINE TYPEWRITER ANIMATION
+     Reveals: "we turn beauty + wellness brands into booked-out businesses"
+     Subtle blinking cursor during typing, removed after completion.
      -------------------------------------------------------------------------- */
-  const typewriterContent = document.getElementById('typewriterContent');
-  if (typewriterContent) {
-    const textToType = "INDEPENDENT CREATIVE & DIGITAL AGENCY";
+  const heroHeadlineText = document.getElementById('heroHeadlineText');
+  const heroHeadlineCursor = document.getElementById('heroHeadlineCursor');
+
+  if (heroHeadlineText) {
+    const textToType = "we turn beauty + wellness brands into booked-out businesses";
     let charIndex = 0;
-    let isDeleting = false;
     let hasStarted = false;
+    const typeSpeed = 40; // smooth, elegant typing pace (ms per char)
 
-    const typeSpeed = 120;     // smooth, slow typing speed (ms per char)
-    const deleteSpeed = 55;    // calm deleting speed (ms per char)
-    const pauseEnd = 3500;     // relaxed pause after completing sentence (ms)
-    const pauseStart = 1000;   // brief pause before retyping (ms)
-
-    const tick = () => {
-      if (!isDeleting) {
+    const typeChar = () => {
+      if (charIndex < textToType.length) {
         charIndex++;
-        typewriterContent.textContent = textToType.substring(0, charIndex);
-
-        if (charIndex === textToType.length) {
-          isDeleting = true;
-          setTimeout(tick, pauseEnd);
-          return;
-        }
-
-        setTimeout(tick, typeSpeed);
+        heroHeadlineText.textContent = textToType.substring(0, charIndex);
+        setTimeout(typeChar, typeSpeed);
       } else {
-        charIndex--;
-        typewriterContent.textContent = textToType.substring(0, charIndex);
-
-        if (charIndex === 0) {
-          isDeleting = false;
-          setTimeout(tick, pauseStart);
-          return;
-        }
-
-        setTimeout(tick, deleteSpeed);
+        // Typing complete: keep cursor briefly, then fade out and remove
+        setTimeout(() => {
+          if (heroHeadlineCursor) {
+            heroHeadlineCursor.classList.add('is-hidden');
+            setTimeout(() => {
+              heroHeadlineCursor.remove();
+            }, 350);
+          }
+        }, 650);
       }
     };
 
     // Trigger after preloader completes or immediately if already loaded
-    const startTypewriter = () => {
+    const startHeroTypewriter = () => {
       if (hasStarted) return;
       hasStarted = true;
-      setTimeout(tick, 350);
+      setTimeout(typeChar, 300);
     };
 
     if (document.body.classList.contains('is-loaded')) {
-      startTypewriter();
+      startHeroTypewriter();
     } else {
       let waitTime = 0;
       const waitPreloader = setInterval(() => {
         waitTime += 50;
         if (document.body.classList.contains('is-loaded') || waitTime >= 1800) {
           clearInterval(waitPreloader);
-          startTypewriter();
+          startHeroTypewriter();
         }
       }, 50);
     }
