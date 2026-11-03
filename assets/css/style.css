@@ -2542,8 +2542,7 @@ button {
    18. SECTION 13: FOOTER (COMPLETE REPLACEMENT — REFERENCE MATCH)
    -------------------------------------------------------------------------- */
 .site-footer {
-  background-color: #1d0a0f;
-  /* Deep dark burgundy / wine */
+  background-color: var(--bg-stone);
   color: #f5f2eb;
   padding-top: clamp(3.5rem, 6vw, 5.5rem);
   padding-bottom: clamp(1.25rem, 2.5vw, 2rem);
