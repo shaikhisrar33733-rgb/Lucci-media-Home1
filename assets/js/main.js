@@ -42,6 +42,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------------------------------
+     01B. HERO BACKGROUND VIDEO AUTOPLAY ASSURANCE
+     -------------------------------------------------------------------------- */
+  const heroVideo = document.querySelector('.hero-bg-video');
+  if (heroVideo) {
+    heroVideo.muted = true;
+    const playVideo = () => {
+      heroVideo.play().catch(() => {});
+    };
+    playVideo();
+    window.addEventListener('touchstart', playVideo, { once: true, passive: true });
+    window.addEventListener('click', playVideo, { once: true, passive: true });
+  }
+
+  /* --------------------------------------------------------------------------
      02. STICKY NAVBAR & ACTIVE SCROLL SPY
      -------------------------------------------------------------------------- */
   const siteHeader = document.getElementById('siteHeader');
