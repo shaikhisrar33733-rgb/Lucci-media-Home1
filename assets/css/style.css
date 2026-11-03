@@ -2347,7 +2347,7 @@ button {
   border: none;
 }
 
-/* Subtle Scrim for Clean Contrast and Readability */
+/* Subtle Scrim for Clean Contrast and Readability Across Center */
 .impact-overlay-scrim {
   position: absolute;
   top: 0;
@@ -2356,90 +2356,67 @@ button {
   bottom: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(16, 12, 10, 0.45) 0%, rgba(16, 12, 10, 0.12) 32%, rgba(16, 12, 10, 0) 60%);
+  background: radial-gradient(ellipse at center, rgba(16, 12, 10, 0.48) 0%, rgba(16, 12, 10, 0.25) 55%, rgba(16, 12, 10, 0.38) 100%);
   pointer-events: none;
   z-index: 2;
 }
 
-/* Three Text Elements Positioned INSIDE the Image as an Overlay */
-.impact-overlay-header {
+/* Three Text Elements Positioned at the EXACT CENTER Inside the Image */
+.impact-overlay-center {
   position: absolute;
-  top: clamp(1.75rem, 3.8vw, 3.5rem);
-  left: 0;
-  right: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
-  padding: 0 clamp(1.5rem, 4.5vw, 4.5rem);
+  max-width: 100%;
+  padding: 0 clamp(1rem, 3.5vw, 3.5rem);
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 3;
   line-height: 1;
-}
-
-.impact-pillars-row {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.impact-pillar-col.left {
-  text-align: left;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.impact-pillar-col.center {
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(0.5rem, 1.2vw, 1.1rem);
-  white-space: nowrap;
 }
 
-.impact-pillar-col.right {
-  text-align: right;
-  display: flex;
-  justify-content: flex-end;
+.impact-pillars-centered {
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3.2vw, 3.5rem);
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .impact-pillar-text {
   font-family: var(--font-display);
-  font-size: clamp(0.72rem, 1.1vw, 0.95rem);
+  font-size: clamp(0.72rem, 1.15vw, 0.98rem);
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #ffffff;
   white-space: nowrap;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
 }
 
 .impact-star-divider {
-  font-size: 0.68em;
+  font-size: 0.7em;
   color: rgba(255, 255, 255, 0.85);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
   display: inline-block;
 }
 
 @media (max-width: 768px) {
-  .impact-overlay-header {
-    top: clamp(1rem, 3vw, 1.75rem);
-    padding: 0 clamp(0.85rem, 2.5vw, 1.5rem);
+  .impact-overlay-center {
+    padding: 0 0.85rem;
   }
 
-  .impact-pillars-row {
-    grid-template-columns: 1fr auto 1fr;
-    gap: 0.25rem;
-  }
-
-  .impact-pillar-col.center {
-    gap: 0.25rem;
+  .impact-pillars-centered {
+    gap: clamp(0.35rem, 1.8vw, 0.85rem);
   }
 
   .impact-pillar-text {
-    font-size: clamp(0.52rem, 2.2vw, 0.7rem);
+    font-size: clamp(0.5rem, 2.2vw, 0.68rem);
     letter-spacing: 0.08em;
   }
 
@@ -2448,19 +2425,18 @@ button {
   }
 }
 
-@media (max-width: 480px) {
-  .impact-overlay-header {
-    top: 0.85rem;
-    padding: 0 0.65rem;
+@media (max-width: 440px) {
+  .impact-overlay-center {
+    padding: 0 0.45rem;
+  }
+
+  .impact-pillars-centered {
+    gap: 0.25rem;
   }
 
   .impact-pillar-text {
-    font-size: clamp(0.46rem, 2.3vw, 0.58rem);
+    font-size: clamp(0.42rem, 2.2vw, 0.52rem);
     letter-spacing: 0.05em;
-  }
-
-  .impact-pillar-col.center {
-    gap: 0.2rem;
   }
 }
 
