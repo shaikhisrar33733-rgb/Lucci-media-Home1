@@ -718,59 +718,32 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-/* Eyebrow */
-.hero-eyebrow-wrap {
+/* Single-Line Typewriter Headline */
+.hero-typewriter-wrap {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
-}
-
-.eyebrow-accent-line {
-  display: block;
-  width: 32px;
-  height: 1px;
-  background-color: var(--accent-gold);
-}
-
-.hero-eyebrow-text {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.14em;
-  color: rgba(245, 242, 235, 0.95);
-  font-weight: 500;
-}
-
-.eyebrow-badge {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  padding: 0.2rem 0.65rem;
-  border: 1px solid rgba(245, 242, 235, 0.3);
-  border-radius: var(--radius-pill);
-  color: var(--accent-gold-light);
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-/* Typewriter Headline */
-.hero-typewriter-wrap {
-  margin-bottom: 0;
-  max-width: 1240px;
-  min-height: clamp(80px, 14vw, 150px);
-  display: flex;
-  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
 }
 
 .hero-typewriter-headline {
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5.2vw, 4.8rem);
+  font-size: clamp(0.95rem, 2.6vw, 2.45rem);
   font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: 0.02em;
+  line-height: 1.25;
+  letter-spacing: 0.08em;
   color: #ffffff;
   text-shadow: 0 2px 28px rgba(0, 0, 0, 0.6);
-  display: inline;
+  display: inline-block;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .typewriter-content {
@@ -1031,6 +1004,7 @@ button {
   background-color: var(--bg-stone);
   border-top: 1px solid var(--border-dark);
   padding-top: clamp(2rem, 3.5vw, 3.5rem);
+  padding-bottom: clamp(3rem, 5vw, 4.5rem);
 }
 
 .services-editorial-layout {
@@ -1592,6 +1566,7 @@ button {
 .founder-section {
   background-color: var(--bg-stone-light);
   border-top: 1px solid var(--border-dark);
+  padding-top: clamp(3rem, 5vw, 4.5rem);
 }
 
 .founder-two-column-grid {
@@ -2247,6 +2222,7 @@ button {
   color: var(--text-light);
   padding: clamp(5rem, 8vw, 9rem) 0;
   overflow: hidden;
+  border-top: 1px solid rgba(245, 242, 235, 0.12);
 }
 
 .cta-backdrop-media {
@@ -2695,17 +2671,10 @@ button {
   :root {
     --container-pad: 1.25rem;
   }
-  .announcement-bar-wrapper {
-    padding: 0.5rem 1rem;
-  }
-  .announcement-pill {
-    font-size: 0.68rem;
-    padding: 0.35rem 1rem;
-    text-align: center;
-  }
-  .hero-eyebrow-wrap {
-    flex-wrap: wrap;
-    gap: 0.5rem;
+  .hero-typewriter-headline {
+    font-size: clamp(0.72rem, 3.6vw, 1.25rem);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
   }
   .hero-media-wrapper {
     height: 340px;
